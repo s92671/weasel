@@ -267,14 +267,7 @@ LRESULT WeaselPanel::OnLeftClicked(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 	point.y = GET_Y_LPARAM(lParam);
 
 	// capture
-	{
-		CRect recth = m_layout->GetCandidateRect((int)m_ctx.cinfo.highlighted);
-		if(m_istorepos)	recth.OffsetRect(0, m_offsetys[m_ctx.cinfo.highlighted]);
-		recth.InflateRect(m_style.hilite_padding, m_style.hilite_padding);
-		// capture widow
-		if (recth.PtInRect(point)) _CaptureRect(recth);
-		else _CaptureRect(rcw);
-	}
+
 	// button response
 	{
 		if(!m_style.inline_preedit && m_candidateCount != 0 && COLORNOTTRANSPARENT(m_style.prevpage_color) && COLORNOTTRANSPARENT(m_style.nextpage_color)) {
